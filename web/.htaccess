@@ -1,0 +1,16 @@
+AddDefaultCharset UTF-8
+
+# Mod_Rewrite
+<IfModule mod_rewrite.c>
+
+# mod_rewrite
+RewriteEngine On
+
+# /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# index.php
+RewriteRule . index.php
+
+</IfModule>
