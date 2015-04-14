@@ -14,7 +14,11 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'doctors')->dropDownList(ArrayHelper::map($model->selectDoctors, 'id', 'full_doctor' ), ['size'=>10, 'multiple' => true])->label(false) ?>
+        <div class="well well-sm">
+            <fieldset style="height: 200px; overflow: auto">
+                <?= $form->field($model, 'doctors')->checkboxList(ArrayHelper::map($model->selectDoctors, 'id', 'full_doctor' ), ['separator' => '<br>'])->label(false) ?>
+            </fieldset>
+        </div>
         <div class="form-group">
             <?= Html::submitButton(Yii::t('app', 'Update'), ['class' => 'btn btn-success']) ?>
             <?= Html::a(Yii::t('app', 'Cancel'), ['/patient/view', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
